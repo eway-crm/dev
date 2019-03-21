@@ -1,37 +1,22 @@
-## Welcome to GitHub Pages
+## Welcome to eWay-CRM Community Page
 
-You can use the [editor on GitHub](https://github.com/rstefko/eway-crm-community/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
+Developers will find here resources that will help them integrate or build upon [eWay-CRM](https://www.eway-crm.com/).
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+### Developer Resources
 
-### Markdown
+#### [eWay-CRM API]
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+We have prepared a class for [PHP](https://github.com/rstefko/eway-crm-php-lib) developers for theirs projects with a lot of samples!
 
-```markdown
-Syntax highlighted code block
+Are you a C# developer? Try our [NuGet](https://github.com/rstefko/eway-crm-php-lib) package.
 
-# Header 1
-## Header 2
-### Header 3
+You may also have a look at open source projects listed below that communicate with eWay-CRM.
 
-- Bulleted
-- List
+#### [eWay-CRM Triggers]
 
-1. Numbered
-2. List
+[Triggers](https://github.com/rstefko/eway-crm-triggers) allow developers write custom actions on the server side of eWay-CRM.
 
-**Bold** and _Italic_ and `Code` text
+### Community Apps
 
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/rstefko/eway-crm-community/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+#### [Time Clock]
+[Time Clock](https://github.com/rstefko/TimeClock) is a Windows application which helps users fill their time sheets in eWay-CRM.
