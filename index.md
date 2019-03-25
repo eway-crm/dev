@@ -8,7 +8,7 @@ Developers will find here resources that will help them integrate or build upon 
 
 We have prepared a class for [PHP](https://github.com/rstefko/eway-crm-php-lib) developers for theirs projects with a lot of samples!
 
-Are you a C# developer? Try our [NuGet](https://github.com/rstefko/eway-crm-php-lib) package.
+Are you a C# developer? Try our [NuGet](https://github.com/rstefko/eway-crm-csharp-lib) package.
 
 You may also have a look at open source projects listed below that communicate with eWay-CRM.
 
