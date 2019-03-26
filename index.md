@@ -19,4 +19,4 @@ You may also have a look at open source projects listed below that communicate w
 ### Community Apps
 
 #### [Time Clock]
-[Time Clock](https://github.com/rstefko/TimeClock) is a Windows application which helps users fill their time sheets in eWay-CRM.
+[Time Clock](http://timeclock.cz) is a Windows application which helps users fill their time sheets in eWay-CRM.
