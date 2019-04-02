@@ -16,6 +16,10 @@ You may also have a look at open source projects listed below that communicate w
 
 [Triggers](https://github.com/rstefko/eway-crm-triggers) allow developers write custom actions on the server side of eWay-CRM.
 
+#### [eWay-CRM Workflow Actions]
+
+Checkout our library of [Workflow Actions](https://github.com/rstefko/eway-crm-workflow-actions) templates.
+
 ### Community Apps
 
 #### [Time Clock]
