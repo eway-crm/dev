@@ -20,6 +20,10 @@ You may also have a look at open source projects listed below that communicate w
 
 Checkout our library of [Workflow Actions](https://github.com/eway-crm/workflow-actions) templates.
 
+#### [eWay-CRM Code Snippets]
+
+Write code faster with our [Code Snippets](https://github.com/eway-crm/Snippets).
+
 ### Community Apps
 
 #### [Time Clock]
