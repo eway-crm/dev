@@ -1,4 +1,4 @@
-## Welcome to eWay-CRM Community Page
+## Welcome to eWay-Dev
 
 Developers will find here resources that will help them integrate or build upon [eWay-CRM](https://www.eway-crm.com/).
 
