@@ -16,6 +16,9 @@ You may also have a look at open source projects listed below that communicate w
 
 [Triggers](https://github.com/eway-crm/triggers) allow developers write custom actions on the server side of eWay-CRM.
 
+Writting triggers requires T-SQL knowledge. Checkout our [Database Schema](http://dev.eway-crm.com/docs/database-schema.html)
+to find a lot of system procedures and functions that can be used right away.
+
 #### [eWay-Workflow]
 
 Checkout our library of [Workflow Actions](https://github.com/eway-crm/workflow-actions) templates.
