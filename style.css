@@ -1,6 +1,6 @@
 @font-face {
     font-family: "GilroyRegular";
-    src: url('https://www.eway-crm.com/wp-content/themes/eway/fonts/webFonts/GilroyRegular/font.woff2') format('woff2'), url('https://www.eway-crm.com/wp-content/themes/eway/fonts/webFonts/GilroyRegular/font.woff') format('woff');
+    src: url('fonts/GilroyRegular.woff2') format('woff2'), url('fonts/GilroyRegular.woff') format('woff');
 }
 
 html {
@@ -22,26 +22,7 @@ body {
 .comp_site_wsw .wrp_comp_head {
 	position: relative;
 	padding-top: 2.25rem;
-	overflow: hidden
-}
-
-.comp_site_wsw .wrp_comp_head .elm_head_background {
-	top: 0;
-	left: 0;
-	bottom: 0;
-	right: 0;
-	position: absolute
-}
-
-.comp_site_wsw .wrp_comp_head .elm_head_background img {
-	position: absolute;
-	margin: auto;
-	top: -9999px;
-	left: -9999px;
-	bottom: -9999px;
-	right: -9999px;
-	height: 100%;
-	max-width: none
+	overflow: hidden;
 }
 
 @media all and (min-width:125em) {
@@ -55,11 +36,32 @@ body {
 	margin-bottom: 7.25rem
 }
 
+.part_card_feature {
+    text-decoration: none;
+    box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.08);
+    text-align: center;
+    padding: 25px 0 25px 0;
+}
+
+.part_card_feature img {
+    border-bottom: 1px solid white;
+    height: 100px !important;
+    width: auto;
+    display: inline;
+}
+
+.part_card_feature p {
+    color: #313131;
+    margin: 20px 20px 0px 20px;
+}
+
 .part_ui_heading {
 	display: block;
 	font-weight: 700;
 	font-size: 1.5rem;
-	line-height: 1.2
+	line-height: 1.2;
+    color: #313131;
+    margin: 20px 20px 0px 20px;
 }
 
 .part_ui_heading.text--smaller {
@@ -88,4 +90,61 @@ body {
 	opacity: 1;
 	-webkit-transition: opacity .3s ease 0s;
 	transition: opacity .3s ease 0s
+}
+
+.row--flex {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+}
+
+.row--flex>[class^=col],
+.row--flex>[class*=" col"] {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+}
+
+.row--flex>[class^=col]:not(.flex--row),
+.row--flex>[class*=" col"]:not(.flex--row) {
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: column;
+	flex-direction: column;
+}
+
+.col--3 {
+	width: 33%;
+}
+
+.flex--wrap {
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap
+}
+
+@media all and (max-width:47.9375em) {
+	.col--3 {
+		width: 100% !important;
+	}
+}
+
+.display--block-center {
+	display: block;
+	margin-right: auto;
+	margin-left: auto
+}
+
+.text--center {
+	text-align: center;
+}
+
+.position--relative {
+	position: relative;
+}
+
+.container {
+	max-width: 80em;
+	padding: 0;
+	margin: 0 auto;
+	width: 100%;
 }
