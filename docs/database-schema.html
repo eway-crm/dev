@@ -226,7 +226,7 @@
         <li class="procedure"><a href="#435179925">dbo.eWaySP_CreateEnum</a></li>
         <li class="procedure"><a href="#1090857186">dbo.eWaySP_CreateEnumValuesRelation</a></li>
         <li class="procedure"><a href="#949277766">dbo.eWaySP_CreateFileSystemAttachmentCopy</a></li>
-        <li class="procedure"><a href="#901277595">dbo.eWaySP_CreateGlobalSetting</a></li>
+        <li class="procedure"><a href="#1573279989">dbo.eWaySP_CreateGlobalSetting</a></li>
         <li class="procedure"><a href="#153037764">dbo.eWaySP_CreateGroup</a></li>
         <li class="procedure"><a href="#294330346">dbo.eWaySP_CreateJournalEntry</a></li>
         <li class="procedure"><a href="#301907026">dbo.eWaySP_CreateLayout</a></li>
@@ -557,6 +557,8 @@
         <li class="scalar_function"><a href="#866856388">dbo.CalculateAge</a></li>
         <li class="scalar_function"><a href="#863380378">dbo.CalculateCartPriceTotal</a></li>
         <li class="scalar_function"><a href="#879380435">dbo.CalculateCartPriceTotalExcludingVAT</a></li>
+        <li class="scalar_function"><a href="#1589280046">dbo.CalculateMargin</a></li>
+        <li class="scalar_function"><a href="#1605280103">dbo.CalculateMarkup</a></li>
         <li class="scalar_function"><a href="#674855704">dbo.CompareNames</a></li>
         <li class="scalar_function"><a href="#1157278507">dbo.CompareVersions</a></li>
         <li class="scalar_function"><a href="#690855761">dbo.ComputeEmailHash</a></li>
@@ -1924,7 +1926,7 @@
     <div class="table">
       <h2 id="1641772906"><a href="#toc" class="tocref">⇧</a><label style="font-weight: normal">Table </label>dbo.EWD_Carts</h2>
       <table>
-        <caption>Object ID: 1641772906; Created: January 18, 2011, 16:33:09; Modified: November 12, 2025, 15:27:39</caption>
+        <caption>Object ID: 1641772906; Created: January 18, 2011, 16:33:09; Modified: November 13, 2025, 16:00:34</caption>
         <thead>
           <tr>
             <th style="width:30ex">Name</th>
@@ -2282,18 +2284,6 @@
             <td class="type">bigint</td>
             <td class="null">☐</td>
             <td><span class="flag">IDENTITY</span>Sortable unique identifier.</td>
-          </tr>
-          <tr>
-            <th>Margin</th>
-            <td class="type">decimal (5, 2)</td>
-            <td class="null">☐</td>
-            <td><span class="flag">DEFAULT ((0.00))</span></td>
-          </tr>
-          <tr>
-            <th>Markup</th>
-            <td class="type">decimal (5, 2)</td>
-            <td class="null">☐</td>
-            <td><span class="flag">DEFAULT ((0.00))</span></td>
           </tr>
         </tbody>
       </table>
@@ -4871,7 +4861,7 @@
     <div class="table">
       <h2 id="1689773077"><a href="#toc" class="tocref">⇧</a><label style="font-weight: normal">Table </label>dbo.EWD_Goods</h2>
       <table>
-        <caption>Object ID: 1689773077; Created: January 18, 2011, 16:33:10; Modified: August 27, 2025, 15:59:03</caption>
+        <caption>Object ID: 1689773077; Created: January 18, 2011, 16:33:10; Modified: November 13, 2025, 16:41:47</caption>
         <thead>
           <tr>
             <th style="width:30ex">Name</th>
@@ -5102,6 +5092,20 @@
             <td class="type">bigint</td>
             <td class="null">☐</td>
             <td><span class="flag">IDENTITY</span>Sortable unique identifier.</td>
+          </tr>
+          <tr>
+            <th>Margin</th>
+            <td class="type">decimal (18, 4)</td>
+            <td class="null">☒</td>
+            <td>
+            </td>
+          </tr>
+          <tr>
+            <th>Markup</th>
+            <td class="type">decimal (18, 4)</td>
+            <td class="null">☒</td>
+            <td>
+            </td>
           </tr>
         </tbody>
       </table>
@@ -17407,10 +17411,10 @@ GUIDs and ranks are not mandatory:
       </table>
     </div>
     <div class="table">
-      <h2 id="901277595"><a href="#toc" class="tocref">⇧</a><label style="font-weight: normal">Stored Procedure </label>dbo.eWaySP_CreateGlobalSetting</h2>
-      <p class="description">Creates new global setting.</p>
+      <h2 id="1573279989"><a href="#toc" class="tocref">⇧</a><label style="font-weight: normal">Stored Procedure </label>dbo.eWaySP_CreateGlobalSetting</h2>
+      <p class="description">Creates a new global setting or updates an existing one. If an EXISTING setting is UPDATED and an OPTIONAL parameter is not SUPPLIED, the procedure will set DEFAULT VALUES! e.g.,  @en, @cs, ...</p>
       <table>
-        <caption>Object ID: 901277595; Created: November 12, 2025, 18:53:50</caption>
+        <caption>Object ID: 1573279989; Created: November 13, 2025, 16:41:44</caption>
         <thead>
           <tr>
             <th style="width:30ex">Name</th>
@@ -28358,6 +28362,84 @@ for this columns.</p>
       </table>
     </div>
     <div class="table">
+      <h2 id="1589280046"><a href="#toc" class="tocref">⇧</a><label style="font-weight: normal">Scalar-Valued Function </label>dbo.CalculateMargin</h2>
+      <p class="description">Calculates the gross margin percentage for a [dbo].[Goods] based on its purchase price and sale price.</p>
+      <table>
+        <caption>Object ID: 1589280046; Created: November 13, 2025, 16:41:46</caption>
+        <thead>
+          <tr>
+            <th style="width:30ex">Name</th>
+            <th style="width:20ex">Type</th>
+            <th style="width:20ex">Default</th>
+            <th>Comment</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th> OUTPUT</th>
+            <td class="type">decimal (18, 4)</td>
+            <td>
+            </td>
+            <td>
+            </td>
+          </tr>
+          <tr>
+            <th>@PurchasePrice</th>
+            <td class="type">decimal (18, 4)</td>
+            <td>
+            </td>
+            <td>The cost price of the product. Treated as 0 if NULL.</td>
+          </tr>
+          <tr>
+            <th>@SalePrice</th>
+            <td class="type">decimal (18, 4)</td>
+            <td>
+            </td>
+            <td>The selling price of the product. Treated as 0 if NULL. Used as / denominator in margin calculation.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table">
+      <h2 id="1605280103"><a href="#toc" class="tocref">⇧</a><label style="font-weight: normal">Scalar-Valued Function </label>dbo.CalculateMarkup</h2>
+      <p class="description">Calculates the markup percentage for a [dbo].[Goods] based on its purchase price and sale price.</p>
+      <table>
+        <caption>Object ID: 1605280103; Created: November 13, 2025, 16:41:47</caption>
+        <thead>
+          <tr>
+            <th style="width:30ex">Name</th>
+            <th style="width:20ex">Type</th>
+            <th style="width:20ex">Default</th>
+            <th>Comment</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th> OUTPUT</th>
+            <td class="type">decimal (18, 4)</td>
+            <td>
+            </td>
+            <td>
+            </td>
+          </tr>
+          <tr>
+            <th>@PurchasePrice</th>
+            <td class="type">decimal (18, 4)</td>
+            <td>
+            </td>
+            <td>The cost price of the product. Treated as 0 if NULL. Used as / denominator in markup calculation.</td>
+          </tr>
+          <tr>
+            <th>@SalePrice</th>
+            <td class="type">decimal (18, 4)</td>
+            <td>
+            </td>
+            <td>The selling price of the product. Treated as 0 if NULL.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table">
       <h2 id="674855704"><a href="#toc" class="tocref">⇧</a><label style="font-weight: normal">Scalar-Valued Function </label>dbo.CompareNames</h2>
       <p class="description">Compares two names. Ignores space, comma and dot chars.</p>
       <table>
@@ -34111,6 +34193,6 @@ for this columns.</p>
     </div>
     <div class="footer">
           Generated by <a href="http://SqlDbDoc.codeplex.com/">DB&gt;doc</a> on
-          November 13, 2025, 03:36:55</div>
+          November 14, 2025, 03:36:17</div>
   </body>
 </html>
