@@ -213,6 +213,7 @@
         <li class="procedure"><a href="#27901404">dbo.eWaySP_CopyGroupRelations</a></li>
         <li class="procedure"><a href="#2057812626">dbo.eWaySP_CopyUserViewToOtherUsers</a></li>
         <li class="procedure"><a href="#246330175">dbo.eWaySP_CorrectIndividualDiscountPrice</a></li>
+        <li class="procedure"><a href="#1909281186">dbo.eWaySP_CorrectMarginAndMarkup_Dynamic</a></li>
         <li class="procedure"><a href="#1375382202">dbo.eWaySP_CreateAdditionalField</a></li>
         <li class="procedure"><a href="#947181749">dbo.eWaySP_CreateAPIUser</a></li>
         <li class="procedure"><a href="#562855305">dbo.eWaySP_CreateAttachmentCopy</a></li>
@@ -226,7 +227,7 @@
         <li class="procedure"><a href="#435179925">dbo.eWaySP_CreateEnum</a></li>
         <li class="procedure"><a href="#1090857186">dbo.eWaySP_CreateEnumValuesRelation</a></li>
         <li class="procedure"><a href="#949277766">dbo.eWaySP_CreateFileSystemAttachmentCopy</a></li>
-        <li class="procedure"><a href="#1573279989">dbo.eWaySP_CreateGlobalSetting</a></li>
+        <li class="procedure"><a href="#1861281015">dbo.eWaySP_CreateGlobalSetting</a></li>
         <li class="procedure"><a href="#153037764">dbo.eWaySP_CreateGroup</a></li>
         <li class="procedure"><a href="#294330346">dbo.eWaySP_CreateJournalEntry</a></li>
         <li class="procedure"><a href="#301907026">dbo.eWaySP_CreateLayout</a></li>
@@ -557,8 +558,8 @@
         <li class="scalar_function"><a href="#866856388">dbo.CalculateAge</a></li>
         <li class="scalar_function"><a href="#863380378">dbo.CalculateCartPriceTotal</a></li>
         <li class="scalar_function"><a href="#879380435">dbo.CalculateCartPriceTotalExcludingVAT</a></li>
-        <li class="scalar_function"><a href="#1589280046">dbo.CalculateMargin</a></li>
-        <li class="scalar_function"><a href="#1605280103">dbo.CalculateMarkup</a></li>
+        <li class="scalar_function"><a href="#1877281072">dbo.CalculateMargin</a></li>
+        <li class="scalar_function"><a href="#1893281129">dbo.CalculateMarkup</a></li>
         <li class="scalar_function"><a href="#674855704">dbo.CompareNames</a></li>
         <li class="scalar_function"><a href="#1157278507">dbo.CompareVersions</a></li>
         <li class="scalar_function"><a href="#690855761">dbo.ComputeEmailHash</a></li>
@@ -5113,7 +5114,7 @@
     <div class="table">
       <h2 id="1769773362"><a href="#toc" class="tocref">⇧</a><label style="font-weight: normal">Table </label>dbo.EWD_GoodsInCart</h2>
       <table>
-        <caption>Object ID: 1769773362; Created: January 18, 2011, 16:33:10; Modified: August 27, 2025, 15:59:03</caption>
+        <caption>Object ID: 1769773362; Created: January 18, 2011, 16:33:10; Modified: November 14, 2025, 08:28:31</caption>
         <thead>
           <tr>
             <th style="width:30ex">Name</th>
@@ -5542,6 +5543,18 @@
             <td class="type">bigint</td>
             <td class="null">☐</td>
             <td><span class="flag">IDENTITY</span>Sortable unique identifier.</td>
+          </tr>
+          <tr>
+            <th>Margin</th>
+            <td class="type">decimal (18, 4)</td>
+            <td class="null">☒</td>
+            <td>The profit margin amount for the product.</td>
+          </tr>
+          <tr>
+            <th>Markup</th>
+            <td class="type">decimal (18, 4)</td>
+            <td class="null">☒</td>
+            <td>The markup percentage applied to the product.</td>
           </tr>
         </tbody>
       </table>
@@ -16886,6 +16899,65 @@
       </table>
     </div>
     <div class="table">
+      <h2 id="1909281186"><a href="#toc" class="tocref">⇧</a><label style="font-weight: normal">Stored Procedure </label>dbo.eWaySP_CorrectMarginAndMarkup_Dynamic</h2>
+      <p class="description">Validates and corrects the stored Margin and Markup percentages for a single goods item based on its provided PurchasePrice and SalePrice. If the calculated values differ from the stored values, the **specified table** record is updated. **Target table is limited to [dbo].[EWD_Goods] or [dbo].[EWD_GoodsInCart]**. Returns 0 if no correction is needed, 1 if a correction is performed.</p>
+      <table>
+        <caption>Object ID: 1909281186; Created: November 14, 2025, 13:17:05</caption>
+        <thead>
+          <tr>
+            <th style="width:30ex">Name</th>
+            <th style="width:20ex">Type</th>
+            <th style="width:20ex">Default</th>
+            <th>Comment</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>@ItemGUID</th>
+            <td class="type">uniqueidentifier</td>
+            <td>
+            </td>
+            <td>The unique identifier of the item whose Margin and Markup fields are being checked and potentially corrected.</td>
+          </tr>
+          <tr>
+            <th>@PurchasePrice</th>
+            <td class="type">decimal (18, 3)</td>
+            <td>
+            </td>
+            <td>The current Purchase Price (Cost) of the item. Used by [dbo].[CalculateMargin] and [dbo].[CalculateMarkup] for validation.</td>
+          </tr>
+          <tr>
+            <th>@SalePrice</th>
+            <td class="type">decimal (18, 3)</td>
+            <td>
+            </td>
+            <td>The current Sale Price of the item. Used by [dbo].[CalculateMargin] and [dbo].[CalculateMarkup] for validation. [dbo].[EWD_Goods].[SalePrice] = Frontend List Price.</td>
+          </tr>
+          <tr>
+            <th>@Margin</th>
+            <td class="type">decimal (18, 4)</td>
+            <td>
+            </td>
+            <td>The currently stored Margin value (percent) for the item. Used for comparison against the calculated value.</td>
+          </tr>
+          <tr>
+            <th>@Markup</th>
+            <td class="type">decimal (18, 4)</td>
+            <td>
+            </td>
+            <td>The currently stored Markup value (percent) for the item. Used for comparison against the calculated value.</td>
+          </tr>
+          <tr>
+            <th>@FolderName</th>
+            <td class="type">nvarchar (128)</td>
+            <td>
+            </td>
+            <td>The name of the target table (e.g., [dbo].[EWD_Goods], [dbo].[EWD_GoodsInCart]) containing the Margin and Markup columns to be updated. Use folder names Goods or GoodsInCart.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table">
       <h2 id="1375382202"><a href="#toc" class="tocref">⇧</a><label style="font-weight: normal">Stored Procedure </label>dbo.eWaySP_CreateAdditionalField</h2>
       <p class="description">Creates additional field column.</p>
       <table>
@@ -17411,10 +17483,10 @@ GUIDs and ranks are not mandatory:
       </table>
     </div>
     <div class="table">
-      <h2 id="1573279989"><a href="#toc" class="tocref">⇧</a><label style="font-weight: normal">Stored Procedure </label>dbo.eWaySP_CreateGlobalSetting</h2>
+      <h2 id="1861281015"><a href="#toc" class="tocref">⇧</a><label style="font-weight: normal">Stored Procedure </label>dbo.eWaySP_CreateGlobalSetting</h2>
       <p class="description">Creates a new global setting or updates an existing one. If an EXISTING setting is UPDATED and an OPTIONAL parameter is not SUPPLIED, the procedure will set DEFAULT VALUES! e.g.,  @en, @cs, ...</p>
       <table>
-        <caption>Object ID: 1573279989; Created: November 13, 2025, 16:41:44</caption>
+        <caption>Object ID: 1861281015; Created: November 14, 2025, 13:17:03</caption>
         <thead>
           <tr>
             <th style="width:30ex">Name</th>
@@ -28362,10 +28434,10 @@ for this columns.</p>
       </table>
     </div>
     <div class="table">
-      <h2 id="1589280046"><a href="#toc" class="tocref">⇧</a><label style="font-weight: normal">Scalar-Valued Function </label>dbo.CalculateMargin</h2>
+      <h2 id="1877281072"><a href="#toc" class="tocref">⇧</a><label style="font-weight: normal">Scalar-Valued Function </label>dbo.CalculateMargin</h2>
       <p class="description">Calculates the gross margin percentage for a [dbo].[Goods] based on its purchase price and sale price.</p>
       <table>
-        <caption>Object ID: 1589280046; Created: November 13, 2025, 16:41:46</caption>
+        <caption>Object ID: 1877281072; Created: November 14, 2025, 13:17:04</caption>
         <thead>
           <tr>
             <th style="width:30ex">Name</th>
@@ -28401,10 +28473,10 @@ for this columns.</p>
       </table>
     </div>
     <div class="table">
-      <h2 id="1605280103"><a href="#toc" class="tocref">⇧</a><label style="font-weight: normal">Scalar-Valued Function </label>dbo.CalculateMarkup</h2>
+      <h2 id="1893281129"><a href="#toc" class="tocref">⇧</a><label style="font-weight: normal">Scalar-Valued Function </label>dbo.CalculateMarkup</h2>
       <p class="description">Calculates the markup percentage for a [dbo].[Goods] based on its purchase price and sale price.</p>
       <table>
-        <caption>Object ID: 1605280103; Created: November 13, 2025, 16:41:47</caption>
+        <caption>Object ID: 1893281129; Created: November 14, 2025, 13:17:05</caption>
         <thead>
           <tr>
             <th style="width:30ex">Name</th>
@@ -34193,6 +34265,6 @@ for this columns.</p>
     </div>
     <div class="footer">
           Generated by <a href="http://SqlDbDoc.codeplex.com/">DB&gt;doc</a> on
-          November 14, 2025, 03:36:17</div>
+          November 17, 2025, 03:42:11</div>
   </body>
 </html>
