@@ -359,7 +359,7 @@
         <li class="procedure"><a href="#1330858041">dbo.eWaySP_CheckDateOnJournalWhenUploading</a></li>
         <li class="procedure"><a href="#1695383342">dbo.eWaySP_CheckDefaultGroupVersusGroupRelations</a></li>
         <li class="procedure"><a href="#1346858098">dbo.eWaySP_CheckDuplicatedRelations</a></li>
-        <li class="procedure"><a href="#1580036535">dbo.eWaySP_CheckEdaInactivity</a></li>
+        <li class="procedure"><a href="#1644036763">dbo.eWaySP_CheckEdaInactivity</a></li>
         <li class="procedure"><a href="#774332056">dbo.eWaySP_CheckForDuplicatedValues</a></li>
         <li class="procedure"><a href="#1858859922">dbo.eWaySP_CheckForExpiredPasswords</a></li>
         <li class="procedure"><a href="#1874859979">dbo.eWaySP_CheckModulePermission</a></li>
@@ -489,7 +489,7 @@
         <li class="procedure"><a href="#467180039">dbo.eWaySP_RetryQueuedJobExecution</a></li>
         <li class="procedure"><a href="#1558334849">dbo.eWaySP_RevertProjectToLead</a></li>
         <li class="procedure"><a href="#205906684">dbo.eWaySP_SaveAttachment</a></li>
-        <li class="procedure"><a href="#1596036592">dbo.eWaySP_SendActivityEmail</a></li>
+        <li class="procedure"><a href="#1660036820">dbo.eWaySP_SendActivityEmail</a></li>
         <li class="procedure"><a href="#76031177">dbo.eWaySP_SendMail</a></li>
         <li class="procedure"><a href="#684033343">dbo.eWaySP_SendMail_Clr</a></li>
         <li class="procedure"><a href="#700033400">dbo.eWaySP_SendMailPlain</a></li>
@@ -607,7 +607,7 @@
         <li class="scalar_function"><a href="#2015384482">dbo.GetAdditionalFieldsMaxServerItemChanged</a></li>
         <li class="scalar_function"><a href="#2050860606">dbo.GetAdministratorGUID</a></li>
         <li class="scalar_function"><a href="#1079869297">dbo.GetBaseChangeID</a></li>
-        <li class="scalar_function"><a href="#1564036478">dbo.GetClientType</a></li>
+        <li class="scalar_function"><a href="#1628036706">dbo.GetClientType</a></li>
         <li class="scalar_function"><a href="#2047384596">dbo.GetColumnPermissionMandatoryName</a></li>
         <li class="scalar_function"><a href="#2063384653">dbo.GetColumnPermissionTypeName</a></li>
         <li class="scalar_function"><a href="#1113522425">dbo.GetConcatenatedEnumValuesRelationsValues_WithObjectTypeID</a></li>
@@ -739,7 +739,7 @@
         <li class="table_function"><a href="#2066860663">dbo.GetAssociatedAdditionalFields</a></li>
         <li class="table_function"><a href="#2031384539">dbo.GetColumnNamesIgnoredByChangeValueLogingHistoryMechanism</a></li>
         <li class="table_function"><a href="#2063514255">dbo.GetCustomizationStats</a></li>
-        <li class="table_function"><a href="#1612036649">dbo.GetDatabaseSizeByModule</a></li>
+        <li class="table_function"><a href="#1676036877">dbo.GetDatabaseSizeByModule</a></li>
         <li class="table_function"><a href="#63377528">dbo.GetDefaultRate</a></li>
         <li class="table_function"><a href="#127377756">dbo.GetExchangeRatesDefaultCurrencyColumnsTable</a></li>
         <li class="table_function"><a href="#143377813">dbo.GetExchangeRatesParentRelationTypesTable</a></li>
@@ -22047,7 +22047,7 @@ GUIDs and ranks are not mandatory:
       <p class="description">Tests database for duplicated relations.</p>
     </div>
     <div class="table">
-      <h2 id="1580036535"><a href="#toc" class="tocref">⇧</a><label style="font-weight: normal">Stored Procedure </label>dbo.eWaySP_CheckEdaInactivity</h2>
+      <h2 id="1644036763"><a href="#toc" class="tocref">⇧</a><label style="font-weight: normal">Stored Procedure </label>dbo.eWaySP_CheckEdaInactivity</h2>
       <p class="description">Watchdog: raises an error (routed to a SystemHealth notification) when a previously-active Eda installation stops logging in for longer than @ThresholdHours. Deactivated users (Active = 0) are excluded.</p>
     </div>
     <div class="table">
@@ -26117,10 +26117,10 @@ for this columns.</p>
       </table>
     </div>
     <div class="table">
-      <h2 id="1596036592"><a href="#toc" class="tocref">⇧</a><label style="font-weight: normal">Stored Procedure </label>dbo.eWaySP_SendActivityEmail</h2>
+      <h2 id="1660036820"><a href="#toc" class="tocref">⇧</a><label style="font-weight: normal">Stored Procedure </label>dbo.eWaySP_SendActivityEmail</h2>
       <p class="description">Sends email to the users on superior item and to all other users assigned to the specified activity.</p>
       <table>
-        <caption>Object ID: 1596036592; Created: September 27, 2026, 17:14:54</caption>
+        <caption>Object ID: 1660036820; Created: September 28, 2026, 20:50:18</caption>
         <thead>
           <tr>
             <th style="width:30ex">Name</th>
@@ -30171,10 +30171,10 @@ for this columns.</p>
       <p class="description">Gets base change ID from EWD_ItemChanges.</p>
     </div>
     <div class="table">
-      <h2 id="1564036478"><a href="#toc" class="tocref">⇧</a><label style="font-weight: normal">Scalar-Valued Function </label>dbo.GetClientType</h2>
+      <h2 id="1628036706"><a href="#toc" class="tocref">⇧</a><label style="font-weight: normal">Scalar-Valued Function </label>dbo.GetClientType</h2>
       <p class="description">Gets ClientType based on ClientVersion.</p>
       <table>
-        <caption>Object ID: 1564036478; Created: September 27, 2026, 17:14:53</caption>
+        <caption>Object ID: 1628036706; Created: September 28, 2026, 20:50:17</caption>
         <thead>
           <tr>
             <th style="width:30ex">Name</th>
@@ -30605,7 +30605,7 @@ for this columns.</p>
       <p class="description">Gets the storage consumed by the customer in megabytes.</p>
     </div>
     <div class="table">
-      <h2 id="1612036649"><a href="#toc" class="tocref">⇧</a><label style="font-weight: normal">Table-Valued Function </label>dbo.GetDatabaseSizeByModule</h2>
+      <h2 id="1676036877"><a href="#toc" class="tocref">⇧</a><label style="font-weight: normal">Table-Valued Function </label>dbo.GetDatabaseSizeByModule</h2>
       <p class="description">Gets the storage consumed by the customer in bytes, broken down by module (Emails, Documents, XsltTransformations, Other).</p>
     </div>
     <div class="table">
@@ -34705,6 +34705,6 @@ for this columns.</p>
     </div>
     <div class="footer">
           Generated by <a href="http://SqlDbDoc.codeplex.com/">DB&gt;doc</a> on
-          September 28, 2026, 04:40:56</div>
+          September 29, 2026, 04:11:10</div>
   </body>
 </html>
