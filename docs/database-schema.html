@@ -202,7 +202,7 @@
         <li class="procedure"><a href="#150329833">dbo.eWaySP_Cart_RecalculatePrices</a></li>
         <li class="procedure"><a href="#166329890">dbo.eWaySP_Cart_SetID</a></li>
         <li class="procedure"><a href="#461907596">dbo.eWaySP_CategorizeItemByRelatedCompany</a></li>
-        <li class="procedure"><a href="#1207869753">dbo.eWaySP_ClearConvertedSuggestionsCounter</a></li>
+        <li class="procedure"><a href="#42651070">dbo.eWaySP_ClearConvertedSuggestionsCounter</a></li>
         <li class="procedure"><a href="#182329947">dbo.eWaySP_ClearForeignKeysFromFolderItems</a></li>
         <li class="procedure"><a href="#214330061">dbo.eWaySP_CloseSession</a></li>
         <li class="procedure"><a href="#230330118">dbo.eWaySP_Companies_CalculateCompaniesReversals</a></li>
@@ -334,7 +334,7 @@
         <li class="procedure"><a href="#694331771">dbo.eWaySP_GetNewAdditionalFieldRank</a></li>
         <li class="procedure"><a href="#678331714">dbo.eWaySP_GetNVarCharAdditionalFieldValue</a></li>
         <li class="procedure"><a href="#1842859865">dbo.eWaySP_GetPermissionsRelevantChangesCount</a></li>
-        <li class="procedure"><a href="#1198131184">dbo.eWaySP_GetPohodaChangedItems</a></li>
+        <li class="procedure"><a href="#90651241">dbo.eWaySP_GetPohodaChangedItems</a></li>
         <li class="procedure"><a href="#1772532277">dbo.eWaySP_GetPohodaSynchronizedItems</a></li>
         <li class="procedure"><a href="#1049522197">dbo.eWaySP_GetPohodaUnsynchronizedItems</a></li>
         <li class="procedure"><a href="#2047514198">dbo.eWaySP_GetTableSchema</a></li>
@@ -359,7 +359,7 @@
         <li class="procedure"><a href="#1330858041">dbo.eWaySP_CheckDateOnJournalWhenUploading</a></li>
         <li class="procedure"><a href="#1695383342">dbo.eWaySP_CheckDefaultGroupVersusGroupRelations</a></li>
         <li class="procedure"><a href="#1346858098">dbo.eWaySP_CheckDuplicatedRelations</a></li>
-        <li class="procedure"><a href="#1166131070">dbo.eWaySP_CheckEdaInactivity</a></li>
+        <li class="procedure"><a href="#58651127">dbo.eWaySP_CheckEdaInactivity</a></li>
         <li class="procedure"><a href="#774332056">dbo.eWaySP_CheckForDuplicatedValues</a></li>
         <li class="procedure"><a href="#1858859922">dbo.eWaySP_CheckForExpiredPasswords</a></li>
         <li class="procedure"><a href="#1874859979">dbo.eWaySP_CheckModulePermission</a></li>
@@ -756,7 +756,7 @@
         <li class="table_function"><a href="#428032431">dbo.GetStoredBytesOfItems</a></li>
         <li class="table_function"><a href="#50853481">dbo.GetUsersFromGroups</a></li>
         <li class="table_function"><a href="#59901518">dbo.GetWorkflowActionInfo</a></li>
-        <li class="table_function"><a href="#1182131127">dbo.GetXsltTransformationStoredBytes</a></li>
+        <li class="table_function"><a href="#74651184">dbo.GetXsltTransformationStoredBytes</a></li>
         <li class="table_function"><a href="#1561798113">dbo.ParseQueryString</a></li>
         <li class="table_function"><a href="#1081522311">dbo.TallySplit</a></li>
       </ul>
@@ -16633,8 +16633,8 @@
       </table>
     </div>
     <div class="table">
-      <h2 id="1207869753"><a href="#toc" class="tocref">⇧</a><label style="font-weight: normal">Stored Procedure </label>dbo.eWaySP_ClearConvertedSuggestionsCounter</h2>
-      <p class="description">Clears converted suggestions counter.</p>
+      <h2 id="42651070"><a href="#toc" class="tocref">⇧</a><label style="font-weight: normal">Stored Procedure </label>dbo.eWaySP_ClearConvertedSuggestionsCounter</h2>
+      <p class="description">Clears Graph converted suggestions counter.</p>
     </div>
     <div class="table">
       <h2 id="182329947"><a href="#toc" class="tocref">⇧</a><label style="font-weight: normal">Stored Procedure </label>dbo.eWaySP_ClearForeignKeysFromFolderItems</h2>
@@ -21348,10 +21348,10 @@ GUIDs and ranks are not mandatory:
       </table>
     </div>
     <div class="table">
-      <h2 id="1198131184"><a href="#toc" class="tocref">⇧</a><label style="font-weight: normal">Stored Procedure </label>dbo.eWaySP_GetPohodaChangedItems</h2>
+      <h2 id="90651241"><a href="#toc" class="tocref">⇧</a><label style="font-weight: normal">Stored Procedure </label>dbo.eWaySP_GetPohodaChangedItems</h2>
       <p class="description">Selects items of given Accounting Unit changed between given ChangeIDs.</p>
       <table>
-        <caption>Object ID: 1198131184; Created: October 08, 2026, 15:11:37</caption>
+        <caption>Object ID: 90651241; Created: October 09, 2026, 16:05:07</caption>
         <thead>
           <tr>
             <th style="width:30ex">Name</th>
@@ -22062,7 +22062,7 @@ GUIDs and ranks are not mandatory:
       <p class="description">Tests database for duplicated relations.</p>
     </div>
     <div class="table">
-      <h2 id="1166131070"><a href="#toc" class="tocref">⇧</a><label style="font-weight: normal">Stored Procedure </label>dbo.eWaySP_CheckEdaInactivity</h2>
+      <h2 id="58651127"><a href="#toc" class="tocref">⇧</a><label style="font-weight: normal">Stored Procedure </label>dbo.eWaySP_CheckEdaInactivity</h2>
       <p class="description">Watchdog: raises an error (routed to a SystemHealth notification) when a previously-active Eda installation stops logging in for longer than @ThresholdHours. Deactivated users (Active = 0) are excluded.</p>
     </div>
     <div class="table">
@@ -33230,7 +33230,7 @@ for this columns.</p>
       </table>
     </div>
     <div class="table">
-      <h2 id="1182131127"><a href="#toc" class="tocref">⇧</a><label style="font-weight: normal">Table-Valued Function </label>dbo.GetXsltTransformationStoredBytes</h2>
+      <h2 id="74651184"><a href="#toc" class="tocref">⇧</a><label style="font-weight: normal">Table-Valued Function </label>dbo.GetXsltTransformationStoredBytes</h2>
       <p class="description">Gets the bytes each XSLT transformation stores in the database, one row per transformation.</p>
     </div>
     <div class="table">
@@ -34724,6 +34724,6 @@ for this columns.</p>
     </div>
     <div class="footer">
           Generated by <a href="http://SqlDbDoc.codeplex.com/">DB&gt;doc</a> on
-          October 09, 2026, 04:31:57</div>
+          October 12, 2026, 04:11:16</div>
   </body>
 </html>
